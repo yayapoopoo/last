@@ -1,0 +1,429 @@
+@import '00_var.css';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
+@import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
+@import 'https://fonts.googleapis.com/css2?family=Jua&family=Mochiy+Pop+P+One&family=Noto+Sans+KR:wght@100&display=swap'
+
+
+
+.app{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.container a,
+.container li,
+.container p,
+.container span,
+.container option {
+    color: var(--main-font-color);
+    list-style-type: none;
+}
+
+#main-header a,
+#main-header p{
+    color: var(--main-bg-color);
+}
+
+#product-slider {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.slider-inner img {
+    width: 500px;
+    height: 500px;
+}
+
+.slides {
+    position: absolute;
+    margin: 50px 50px;
+    transition: left 0.5s ease-out;
+    left: 0;
+    top: 0;
+    width: 5000px;
+    /* 슬라이드할 사진과 마진 총 넓이 */
+
+}
+
+.slides ul {
+    width: calc(100% * 4);
+    display: flex;
+    animation: slide 8s infinite;
+}
+
+.slides li:not(:last-child) {
+    float: left;
+    margin-right: 320px;
+}
+
+.slides li {
+    float: left;
+}
+
+.slide-btn span {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    top: 45%;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 50px;
+}
+
+.next {
+    right: 50px;
+}
+
+h2 {
+	font-size: 30px;
+	text-align: left;
+}
+
+.titlea {
+	padding-right: 50px
+	}
+
+.titlea,
+#move-btn {
+	float: left;
+	}
+	
+	#move-btn:hover {
+	background-color: rgb(252, 227, 138);
+	    transition-duration: 0.3s;
+	}
+
+
+
+
+.product-basicinfo {
+    height: auto;
+        border-top: 2px solid #555;
+}
+
+.info1,
+.info2 {
+    float: left;
+    width: 50%;
+    padding: 20px;
+    color: black;
+}
+
+.info-body {
+	padding :  10px 0;
+    height: auto;
+}
+
+.info-body > h4 {
+    height: auto;
+    line-height : 1.5
+}
+
+.info-body .title {
+    float: left;
+    width: 50%;
+    margin: 0;
+}
+
+
+.info-body .title2 {
+    float: left;
+    width: 30%;
+    margin: 0;
+}
+
+
+
+.info2 select {
+    width: 70%;
+    height: 20px;
+    color: var(--main-font-color);
+}
+
+.info2 select option[value=""][disabled] {
+    display: none;
+}
+
+
+
+
+
+#product h4 {
+    text-align: center;
+
+}
+
+.product-Detail,
+.product-info,
+.product-review,
+.product-QnA {
+    margin: 20px 0;
+    height: auto;
+    min-height: 350px;
+    padding: 20px;
+}
+
+#product {
+    color: #000;
+}
+
+
+
+.up-on-scroll {
+    transition: all 0.7s;
+    	font-size: 18px;
+}
+
+.a {
+    width: 45%;
+    margin-right: 15%;
+    float: left;
+}
+
+.video {
+    width: 40%;
+    float: left;
+    
+}
+
+.product-v {    
+    width: 80%;
+    margin: 10px;
+    border-radius: 30px;
+
+}
+
+
+.img-wrap {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    max-height: 400px;
+}
+
+.img-wrap .image {
+    object-fit: contain;
+    max-width: 500px;
+    width: 100%;
+}
+
+.black-bg {
+    background: black;
+    color: white;
+    padding: 20px;
+}
+
+.pb-300 {
+    padding-bottom: 300px;
+}
+
+.min-height-500 {
+    min-height: 500px;
+}
+
+.need-margin {
+    margin: 20px 20px 200px;
+}
+
+section>h2 {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    z-index: 2;
+    background: black;
+}
+
+
+
+
+.slide-up-wrap {
+    height: 200vh;
+    align-items: center;
+    justify-content: center;
+    float: left;
+}
+
+.slide-up-wrap>div {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.slide-up-wrap>div>img {
+    width: 50%;
+    height: 60%;
+    max-width: 80vw;
+    max-height: 80vh;
+    object-fit: cover;
+}
+
+
+
+
+
+
+.image-wrap img {
+    height: 50%;
+}
+
+.diff-desc-image-wrap>div {
+    display: flex;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.diff-desc-image-wrap>div .desc {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    flex: 1 0 0%;
+}
+
+.diff-desc-image-wrap>div .desc>p {
+    margin-bottom: 250px;
+}
+
+.diff-desc-image-wrap>div .desc>p:last-child {
+    margin-bottom: 100px;
+}
+
+.diff-desc-image-wrap .image-wrap {
+    flex: 1 0 0%;
+    max-width: 40vw;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.background-change-wrap {
+    height: 100vh;
+    padding-bottom: 100px;
+}
+
+.background-change-wrap>div {
+    overflow: hidden;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+.background-change-wrap>div>h2 {
+    margin: 0;
+    padding: 20px;
+    line-height: 40px;
+    background: black;
+    color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.background-change-wrap>div>img {
+    position: sticky;
+    width: 100%;
+    height: calc(100% - 80px);
+    object-fit: cover;
+}
+
+.btn {
+	background-color: rgba(30, 80, 144, 0.9);
+	color: white;
+}
+.btn > a{
+	color: white;
+}
+
+
+
+
+.product-review,
+.product-QnA {
+	color: black;
+}
+
+.revdiv{
+  
+    width: 100%;
+}
+
+
+.revdiv > div
+ {
+    float: left;
+    padding: 10px;
+   
+}
+
+
+.main-logo {
+	color: white!important
+}
+
+
+
+
+
+
+.info {
+    float: left;
+    width: 50%;
+    padding: 20px;
+    color: black;
+}
+
+
+
+	
+	
+
+/* 주문정보 띄우는 창*/ 
+.info2 {
+   	color: #282828;	
+}
+.basketdiv {
+    width: 100%;
+    float: left;
+    font-size: 15px;
+    margin-bottom: 20px;
+ 
+}
+
+.data {
+	height: 216px;
+}
+.subdiv > div {
+	float: left;
+	padding: 10px;
+}
+
+    .basketdiv .row.head {
+        border-bottom: 1px solid #E5E5E5;
+        box-sizing: border-box;
+     
+    }
+
+    .summoney,.sumcount {
+    float: left;
+    padding: 8px 15px;
+    
+    }
+
+

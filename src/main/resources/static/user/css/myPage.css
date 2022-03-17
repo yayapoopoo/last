@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.order {
+	text-align: center;
+}
+
+.orderState {
+	
+}
+
+.cancle-menu {
+	text-align: center;
+	list-style: none;
+	display: inline-block;
+}
+
+.cart-menu {
+	list-style: none;
+	text-align: center;
+}
+
+.user-menu {
+	list-style: none;
+	text-align: center;
+}
+
+.consult-menu {
+	list-style: none;
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+.dnd {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.situation {
+	display: inline-block;
+	margin-left: 10px;
+	padding-left: 20px;
+	padding-top: 30px;
+}
+
+.back-button {
+	float: feft;
+	padding-left: 120px;
+}
+
+.inner, .title {
+	text-align: center;
+}
+
+.cancle {
+	float: left;
+}
+
+.title-text {
+	text-align: center;
+	padding-right: 300px;
+}
+
+.duration {
+	font-size: 8px;
+	color: gray;
+}

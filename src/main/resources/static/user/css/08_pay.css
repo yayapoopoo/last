@@ -1,0 +1,77 @@
+.order_content,
+.orderend_info,
+.order_bill,
+.order_bill_info,
+.order_bill_info,
+.payment_agree_wrap,
+a {
+	color: black;	
+	font-size: 15px;
+}
+
+.order_content {
+padding: 10%;
+}
+
+.orderend,
+.orderend_info,
+.payment_agree_wrap {
+	padding: 0 15%;
+}
+
+.orderend {
+	float: left;
+	width: 70%;
+}
+
+.orderend_content {
+	padding-bottom: 20px;
+
+}
+.orderend_info {
+	padding-top: 20px;
+	border-top: 1px solid rgb(30, 80, 144);
+	
+	
+}
+
+
+.order_bill {
+
+	float: left;
+	width: 30%;
+}
+
+
+
+.title {
+	font-size: 20px;
+}
+
+.point_color {
+	font-weight: 700;
+	color: rgb(30, 80, 144);
+}
+
+
+.desc_list {
+	font-size: 10px;
+}
+
+.order_num,
+.order_deli {
+	height: 50px;
+}
+
+.p_homepage,
+.p_homepage > a,
+.p_mypage {
+	border: none;
+	background-color: rgba(30, 80, 144, 0.9);
+	color: white;
+}
+
+.p_homepage,
+.p_mypage {
+	border-radius: 5px;
+}

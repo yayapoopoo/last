@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.icia.dabyinsa.admin.dao.GuestSearchDao">
+	
+	<sql id="search">
+		<choose>
+			<when test="gsearchOption == 'all'">
+			WHERE MID LIKE '%'||#{gkeyword}||'%' 
+			AND MNAME LIKE '%'||#{gkeyword2}||'%'
+			</when>
+			<otherwise>
+			WHERE ${gsearchOption} LIKE '%'||#{gkeyword}||'%' 
+			AND ${gsearchOption2} LIKE '%'||#{gkeyword2}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	
+	<!-- 전체 하객 목록 -->
+	<select id="getGList" parameterType="String" resultType="com.icia.dabyinsa.user.dto.GuestDto">
+		SELECT * FROM GUEST_ADMIN
+		<include refid="search"></include>	
+	</select>
+	
+	<select id="getGListCount" resultType="Integer">
+		SELECT COUNT(*) FROM GUEST_ADMIN
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getGSearchListCount" resultType="Integer">
+		SELECT COUNT(*) FROM GUEST_ADMIN
+	</select>
+	
+		 <!-- 선택 고객 삭제 -->
+    <select id="guestDelete">
+   		DELETE FROM GUEST_ADMIN WHERE gname = #{gname}
+    </select>
+		
+</mapper>

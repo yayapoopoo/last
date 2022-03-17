@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+.login-box {
+	text-align: center;
+}
+
+.login-button {
+	background-color: #606060;
+	color: aliceblue;
+	border: 0px;
+	border-bottom: 1px solid black;
+	padding-right: 115px;
+	padding-left: 115px;
+	padding-bottom: 7px;
+	padding-top: 7px;
+	border-radius: 1ch;
+}
+
+.inputId, .inputPw {
+	width: 200px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 70px;
+	border: 0px;
+	border-bottom: 1px solid;
+}
+
+.login-box {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.join-box {
+	text-align: center;
+	padding-bottom: 100px;
+}
+
+.agree-box {
+	border: 1px solid;
+}
+
+.idCheck {
+	background-color: #606060;
+	color: aliceblue;
+	border: 0px;
+	border-bottom: 1px solid black;
+	border-radius: 1ch;
+	margin-left: 20px;
+	width: 70px;
+}
+
+.joinId {
+	margin-left: 90px;
+}
+
+.joinInput, .joinId {
+	width: 250px;
+	border: 0;
+	border-bottom: 1px solid;
+	padding: 10px;
+}
+
+.joinInfo {
+	color: #606060;
+}
+
+.login-btn {
+	margin-top: 30px;
+	width: 300px;
+	padding: 9px;
+	background-color: #606060;
+	border: 0;
+	border-radius: 3ch;
+	color: white;
+}
+
+.check_All, .check_agree {
+	width: 18px;
+	height: 18px;
+}
+
+.row_agree_box {
+	padding: 10px;
+	text-align: justify;
+}
+
+.high_agree_box {
+	width: 320px;
+	margin: auto;
+}
+
+.find_pw_form {
+	text-align: center;
+	margin-top: 200px;
+	padding-bottom: 200px;
+}
+
+.find_pw-email, .find_id, .find_name {
+	width: 250px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border: 0;
+	border-bottom: 1px solid;
+	margin-bottom: 50px;
+}
+
+.find_id_button {
+	width: 250px;
+	margin-top: 30px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border: 0;
+	background-color: #606060;
+	color: aliceblue;
+	border-radius: 1ch;
+}
+
+.find_id {
+	margin-top: 50px;
+}
+
+.find_id_form {
+	text-align: center;
+	margin-top: 300px;
+	padding-bottom: 500px;
+}
+
+.find_email {
+	width: 250px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border: 0;
+	border-bottom: 1px solid;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.find_id_button {
+	width: 250px;
+	margin-top: 30px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border: 0;
+	background-color: #606060;
+	color: aliceblue;
+	border-radius: 1ch;
+}
+
+.back-button {
+	float: feft;
+	padding-left: 120px;
+}
+
+#sns-agree, #info-agree, #store-agree {
+	color: #929292;
+	
+}
+
+.input-box {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#star {
+	color: red;
+}
+
+
+
+#pwf {
+	text-align: center;
+	font-size: 13px;
+	font-weight: 300px;
+	display: none;
+	color: red;
+}
+
+#pwt {
+	text-align: center;
+	font-size: 13px;
+	font-weight: 300px;
+	display: none;
+	color: green;
+}
+

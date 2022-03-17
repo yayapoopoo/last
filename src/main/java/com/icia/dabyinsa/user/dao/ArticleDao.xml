@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icia.dabyinsa.user.dao.ArticleDao">
+    <select id="getArticles" resultType="com.icia.dabyinsa.user.dto.Article" parameterType="map">
+    	SELECT * 
+    	FROM article
+    	ORDER BY id DESC
+    </select>
+    <insert id="write" parameterType="map">
+    	INSERT INTO article (id,regDate,title,body)
+    	VALUES 
+    	(article_SEQ.nextval,SYSDATE,#{title},#{body})
+    </insert>
+    <select id="getArticle" resultType="com.icia.dabyinsa.user.dto.Article">
+    	SELECT *
+    	FROM article
+    	WHERE id = #{id}
+    </select>
+    
+    <update id="modify">
+    	UPDATE article
+    	SET title = #{title},
+    	body = #{body}
+    	WHERE id = #{id}
+    </update>
+    
+    <delete id="remove">
+    	DELETE FROM article
+    	WHERE id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.user.dao.OrderDao">
+	
+	<!-- 멤버 정보 목록 -->
+	<select id="getmInfoList" resultType="com.icia.dabyinsa.user.dto.MemberDto">
+    	SELECT *
+    	FROM member WHERE M_ID = #{m_id}
+    </select>
+    
+	
+	<!-- 주문 페이지 이동-->
+	<select id="getoList" resultType="com.icia.dabyinsa.user.dto.ProductListDto">
+		SELECT *
+		FROM prod_info
+	</select>
+
+
+	<!-- 주문 저장 (데이터베이스이동) -->
+	<insert id="OrderInsert"
+		parameterType="com.icia.dabyinsa.user.dto.OrderDto">
+		insert into ordertbl
+		values ( #{o_code}, #{ m_id}, null, 1111-1111 , #{ prod_id},
+		sysdate, #{ o_msg}, #{ o_recipient}, #{ o_post}, #{ o_address},
+		#{ o_add}, #{ o_num}, #{ o_email}, #{ p_pay}, #{ p_bank}, #{ p_save},
+		0, 1, 0, null, null, 9 )
+	</insert>
+
+	<insert id="OrderInsert2"
+		parameterType="com.icia.dabyinsa.user.dto.OrderDto">
+		INSERT INTO order_item
+		VALUES (#{oi_num}, #{o_code}, #{ prod_id}, #{oi_amount}, #{oi_totalprice})
+	</insert>
+	
+	<insert id="OrderInsert3"
+		parameterType="com.icia.dabyinsa.user.dto.OrderDto">
+
+	UPDATE member
+	SET m_point = #{m_point}
+	WHERE M_ID = #{m_id}
+
+	</insert>
+	
+	
+	
+	<!-- 저장한 주문 불러오기 -->
+	<select id="OrderdInfo" resultType="com.icia.dabyinsa.user.dto.OrderDto">
+	SELECT *
+    FROM ordertbl
+    inner join prod_info
+    ON ordertbl.prod_id = prod_info.prod_id
+    inner join order_item
+    ON ordertbl.o_code = order_item.o_code
+    where ordertbl.prod_id = #{prod_id}
+    and ordertbl.m_id = #{m_id}
+    and ordertbl.o_code = #{o_code}
+    
+	</select>
+	
+	<!-- 사용자 쿠폰 정보 불러오기 -->
+
+
+<select id="getcouponList" resultType="com.icia.dabyinsa.user.dto.CouponDto">
+	SELECT *
+    FROM coupon
+    inner JOIN incoupon
+    ON coupon.cp_num = incoupon.cp_num
+    where incoupon.m_id = #{m_id}
+	
+    </select>
+	
+	
+
+	
+
+</mapper>

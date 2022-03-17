@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.admin.dao.MemberSearchDao">
+	
+	<sql id="search">
+		<choose>
+			<when test="msearchOption == 'all'">
+			WHERE M_ID LIKE '%'||#{mkeyword}||'%' 
+			AND M_NAME LIKE '%'||#{mkeyword2}||'%'
+			</when>
+			<otherwise>
+			WHERE ${msearchOption} LIKE '%'||#{mkeyword}||'%' 
+			AND ${msearchOption} LIKE '%'||#{mkeyword2}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- 전체 고객 목록 -->
+	<select id="getMAList" resultType="com.icia.dabyinsa.user.dto.MemberDto">
+		SELECT * FROM MEMBER
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 전체 하객 수 -->
+	<select id="getMAListCount" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBER
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 검색 하객 수 -->
+	<select id="getMSearchListCount" resultType="Integer">
+		SELECT COUNT (*) FROM MEMBER
+	</select>
+	 
+	 <!-- 선택 고객 삭제 -->
+    <select id="memberDelete">
+   		DELETE FROM MEMBER WHERE m_id = #{m_id}
+    </select>
+    
+    
+    <select id="memInfo" parameterType="String" resultType="com.icia.dabyinsa.user.dto.MemberDto">
+		SELECT * FROM MEMBER WHERE m_id = #{m_id}  	 		
+    </select>
+		
+	</mapper>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.board.oneone.dao.Oneone_BoardDao">
+
+	<select id="getList" parameterType="HashMap"
+		resultType="com.icia.dabyinsa.board.oneone.dto.Oneone_BoardDto">
+		<![CDATA[
+		SELECT * FROM OOBLIST_1
+		WHERE RONUM >= (#{num} * #{lcnt}) - (#{lcnt} - 1)  
+			AND RONUM <= #{num} * #{lcnt}
+		]]>
+	</select>	
+	 <!-- 내것만 검색해서 가지고 오기 -->
+		<select id="getmyList" parameterType="HashMap"
+		resultType="com.icia.dabyinsa.board.oneone.dto.Oneone_BoardDto">
+		<![CDATA[
+		SELECT * FROM OOBLIST_1
+		WHERE RONUM >= (#{num} * #{lcnt}) - (#{lcnt} - 1)  
+			AND RONUM <= #{num} * #{lcnt} AND BID = #{mid}
+		]]>
+	</select>	
+
+	<select id="getBoardCnt" resultType="Integer">
+		SELECT COUNT(*) FROM OOBLIST_1
+	</select>
+
+	<insert id="boardInsert"
+		parameterType="com.icia.dabyinsa.board.oneone.dto.Oneone_BoardDto"
+		useGeneratedKeys="true" keyProperty="bnum">
+		<selectKey keyProperty="bnum" resultType="Integer"
+			order="BEFORE">
+			SELECT ONEONE_BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO OOB
+		VALUES (${bnum},#{btitle},#{bcontents},#{bid},
+			DEFAULT,DEFAULT)
+	</insert>
+	
+	<insert id="fileInsert" parameterType="HashMap">
+		INSERT INTO OOBF
+		VALUES (OOBF_SEQ.NEXTVAL,#{bnum},#{oriName},#{sysName})
+	</insert>
+	
+	<select id="getContents" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.oneone.dto.Oneone_BoardDto">
+		SELECT * FROM OOBLIST_1 WHERE bnum=#{bnum}
+	</select>
+	
+	<select id="getBfList" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.oneone.dto.Oneone_BfileDto">
+		SELECT * FROM OOBF WHERE bf_bnum=#{bnum}
+	</select>
+	
+	<select id="getReList" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.oneone.dto.Oneone_ReplyDto">
+		SELECT * FROM OORLIST WHERE r_bnum=#{bnum}
+	</select>
+	
+	<insert id="replyInsert" 
+		parameterType="com.icia.dabyinsa.board.oneone.dto.Oneone_ReplyDto">
+		INSERT INTO OOR
+		VALUES (ONEONE_REPLY_SEQ.NEXTVAL,#{r_bnum},#{r_contents},
+			#{r_id},DEFAULT)
+	</insert>
+	 
+	 <update id="viewUpdate" parameterType="Integer">
+	 	UPDATE OOB SET B_VIEWS=B_VIEWS+1
+		WHERE B_NUM=#{bnum}
+	 </update>
+	 
+	 <update id="boardUpdate" 
+	 	parameterType="com.icia.dabyinsa.board.oneone.dto.Oneone_BoardDto">
+	 	UPDATE OOB SET B_TITLE=#{btitle}, B_CONTENTS=#{bcontents}
+	 	WHERE B_NUM=#{bnum}
+	 </update>
+	 
+	 <delete id="fileDelete" parameterType="String">
+	 	DELETE FROM OOBF
+	 	WHERE BF_SYSNAME=#{sysName}
+	 </delete>
+	 
+	 <delete id="replyDelete" parameterType="Integer">
+	 	DELETE FROM OOR
+	 	WHERE R_BNUM=#{bnum}
+	 </delete>
+	 
+	 <delete id="filesListDelete" parameterType="Integer">
+	 	DELETE FROM OOBF
+	 	WHERE BF_BNUM=#{bnum}
+	 </delete>
+	 
+	 <delete id="boardDelete" parameterType="Integer">
+	 	DELETE FROM OOB
+	 	WHERE B_NUM=#{bnum}
+	 </delete>
+</mapper>
+
+
+
+
+

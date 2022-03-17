@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.admin.dao.OrderSearchDao">
+	
+	<sql id="search">
+		<choose>
+			<when test="searchOption == 'all'">
+			WHERE OCODE LIKE '%'||#{keyword}||'%' 
+			AND PRODNAME LIKE '%'||#{keyword2}||'%'
+			</when>
+			<otherwise>
+			WHERE ${searchOption} LIKE '%'||#{keyword}||'%'
+			AND ${searchOption2} LIKE '%'||#{keyword2}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- 전체 주문 목록 -->
+	<select id="getOList" resultType="com.icia.dabyinsa.admin.dto.order.OrderListDto">
+		SELECT * FROM ORDER_LIST
+		<include refid="search"></include>
+	</select>
+	
+	
+	<select id="getOListCount" resultType="Integer">
+		SELECT COUNT(*) FROM ORDER_LIST
+		<include refid="search"></include>
+	</select>
+	
+	
+	
+	<!-- 취소 -->
+	<select id="getOCList" resultType="com.icia.dabyinsa.admin.dto.order.OrderCancelDto">
+		SELECT * FROM ORDER_CANCEL
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getOCListCount" resultType="Integer">
+		SELECT COUNT(*) FROM ORDER_CANCEL
+		<include refid="search"></include>
+	</select>
+	
+	
+	
+	<!-- 교환 -->
+	<select id="getOCGList" resultType="com.icia.dabyinsa.admin.dto.order.OrderChangeDto">
+		SELECT * FROM ORDER_CHANGE
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getOCGListCount" resultType="Integer">
+		SELECT COUNT(*) FROM ORDER_CHANGE
+		<include refid="search"></include>
+	</select>
+	
+	
+	<!-- 환불 -->
+	<select id="getORList" resultType="com.icia.dabyinsa.admin.dto.order.OrderRefundDto">
+		SELECT * FROM ORDER_REFUND
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getORListCount" resultType="Integer">
+		SELECT COUNT(*) FROM ORDER_REFUND
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 반품 -->
+	<select id="getORTList" resultType="com.icia.dabyinsa.admin.dto.order.OrderReturnsDto">
+		SELECT * FROM ORDER_RETURNS
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getORTListCount" resultType="Integer">
+		SELECT COUNT(*) FROM ORDER_RETURNS
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 입금전 -->
+	<select id="getPList" resultType="com.icia.dabyinsa.admin.dto.delivery.PaymentListDto">
+		SELECT * FROM PAYMENT_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getPListCount" resultType="Integer">
+		SELECT COUNT(*) FROM PAYMENT_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 배송준비중 -->
+	<select id="getSBList" resultType="com.icia.dabyinsa.admin.dto.delivery.ShippedBeginListDto">
+		SELECT * FROM S_BEGIN_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getSBListCount" resultType="Integer">
+		SELECT COUNT(*) FROM S_BEGIN_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 배송대기 -->
+	<select id="getSSList" resultType="com.icia.dabyinsa.admin.dto.delivery.ShippedStandbyListDto">
+		SELECT * FROM S_STANDBY_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getSSListCount" resultType="Integer">
+		SELECT COUNT(*) FROM S_STANDBY_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 배송중 -->
+	<select id="getSEList" resultType="com.icia.dabyinsa.admin.dto.delivery.ShippedEndListDto">
+		SELECT * FROM S_END_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getSEListCount" resultType="Integer">
+		SELECT COUNT(*) FROM S_END_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 배송완료 -->
+	<select id="getSCList" resultType="com.icia.dabyinsa.admin.dto.delivery.ShippedCompleteListDto">
+		SELECT * FROM S_COMPLETE_LIST
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getSCListCount" resultType="Integer">
+		SELECT COUNT(*) FROM S_COMPLETE_LIST
+		<include refid="search"></include>
+	</select>
+</mapper>

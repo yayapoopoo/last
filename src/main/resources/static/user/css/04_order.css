@@ -1,0 +1,407 @@
+@import '00_var.css';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
+@import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
+@import 'https://fonts.googleapis.com/css2?family=Jua&family=Mochiy+Pop+P+One&family=Noto+Sans+KR:wght@100&display=swap'
+
+
+
+.app{
+    font-family: 'Roboto', sans-serif;
+}
+
+.row {
+	padding: 100px 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+td,ul {
+	    color: var(--main-font-color);
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.colorlib-product {
+    padding: 7em 0;
+    clear: both;
+  }
+  
+  
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 15px;
+  }
+  
+  .texttotalprice {
+  color: rgba(30, 80, 144, 0.9);
+  
+  }
+
+  
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+  
+  
+  .container {
+    min-width: 992px !important;
+  }
+  
+  
+  
+  .col-md-10 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 83.33333%;
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+  
+  .col-md-10 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .offset-md-1 {
+    margin-left: 8.33333%;
+  }
+  
+  .process-wrap {
+    width: 100%;
+    display: block;
+    float: left;
+  }
+  
+  .process {
+    position: relative;
+    float: left;
+    width: 25%;
+    z-index: 0;
+  }
+  
+  .process:after {
+    position: absolute;
+    top: 35%;
+    right: -37%;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #f0f0f0;
+    z-index: -1;
+  }
+  
+  .process:last-child:after {
+    display: none;
+  }
+  
+  .process p {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: table;
+    border: 2px solid #fafafa;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background: #fff;
+    z-index: 1;
+    font-weight: 400;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+  }
+  
+  .process p span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .process h3 {
+    margin-bottom: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .process.active p {
+    border: 2px solid #f0f0f0;
+  }
+  
+  
+  .text-center {
+    text-align: center !important;
+  }
+  
+  
+  
+  
+  /* == 별 == */
+  
+  .text-center {
+    color: var(--main-font-color);
+  }
+  
+  
+  #sp1,
+  #sp2,
+  #sp3,
+  #sp4 {
+    border: 1px solid #717171;
+    border-radius: 50px;
+  }
+  
+  #sp2 {
+    color: #88c8bc;
+    background: #717171;
+    border-radius: 50px;
+  }
+  
+  
+  #container {
+    color: #000;
+    padding: 10px 10%;
+    height: auto;
+  }
+  
+  .orderArea,
+  .terms,
+  .Payment-info,
+  .Payment-method {
+    margin-bottom: 50px;
+  }
+  
+  .post {
+    
+    height: 30px;
+    width: 95px;
+    border: none;
+    background-color: var(--main-hoverlighter-color);
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .Payment-info {
+    height: 100px;
+  }
+  
+  .title {
+    margin-top: 15px;
+  }
+  
+  #container tr {
+    border: 10px solid rgba(255, 255, 255, 0);
+  }
+  
+  #container th,
+  #container label,
+  #container input {
+    font-weight: var(--main-nomal-size);
+    font-size: var(--main-font-md);
+    margin: 2px 5px ;
+  }
+  
+  .order {
+    float: left;
+    width: 33.33333%;
+    text-align: center;
+  }
+  
+  .Payment1,
+  .Payment2 {
+    float: left;
+    width: 80%;
+    text-align: center;
+    margin: 20px 0 ;
+  }
+  
+  
+  .Payment1 label {
+  line-height: 40px;
+  }
+  
+  .Payment2 {
+    width: 20%;
+  }
+  
+  .Payment2 button {
+    
+    height: 40px;
+    width: 100px;
+    border: none;
+    background-color: var(--main-hoverlight-color);
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  .deposit,
+  .virtual-account {
+    display: none;
+  }
+  
+  .Payment-method {
+    min-height: 250px;
+    margin-bottom: 30px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .row {
+  color: black;
+  }
+  
+  
+  
+  
+  .btn-a {
+      background-color: rgba(30, 80, 144, 0.9);
+    color: white;
+}
+  }
+  
+  
+  /* 220111 수정*/
+  
+  .text-center {
+    width: 100%;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+  
+  td {
+    text-align: center;
+  }
+  
+  .text-center:nth-child(1) {
+        width: 10%;
+    }
+    
+  .text-center:nth-child(2) {
+        width: 30%;
+    }
+
+  .text-center:nth-child(3) {
+        width: 10%;
+    }
+
+  .text-center:nth-child(4) {
+        width: 50%;
+    }
+
+  .text-center:nth-child(5) {
+        width: 50%;
+    }
+
+        
+ 
+        
+ 
+    
+    
+    
+
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .modal .bg {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modalBox {
+          position: absolute;
+          background-color: #fff;
+          width: 400px;
+          height: 200px;
+          padding: 50px 15px;
+        }
+
+        .modalBox button {
+          display: block;
+          width: 80px;
+        }
+
+        .hidden {
+          display: none;
+        }
+        
+        
+        #coupon {
+        border: none;
+        }
+        
+        .closeBtng {
+        padding-left: 18%;
+        padding-top: 40px;
+        float : left;
+        }
+        
+        .closeBtn {
+        
+        border: none;
+       	border-radius : 5px;
+        background-color:rgba(30, 80, 144, 0.9);
+        color: white; 
+        }
+        
+    

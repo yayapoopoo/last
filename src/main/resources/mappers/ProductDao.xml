@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.user.dao.ProductDao">
+	
+	<!-- 상품 목록 (전체 + 검색) -->
+	<select id="getpList" resultType="com.icia.dabyinsa.user.dto.ProductListDto">
+	SELECT *
+    FROM prod_info
+    inner join prod_img
+    ON prod_info.prod_id = prod_img.pi_prod_id
+
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 상품 개수 (전체 + 검색) -->
+	<select id="getProductcnt" resultType="Integer">
+		SELECT COUNT(*) FROM prod_info
+		<include refid="search"></include>
+	</select>
+	
+	<!--상품은 prod_id 기준 오름차순 정렬-->
+	<sql id="search">
+			where prod_name
+			like '%'||#{keyword}||'%'
+			ORDER BY TO_NUMBER(prod_id)
+	</sql>
+
+	<!-- 상품 상세 페이지 이동-->
+	<select id="getdetailList" resultType="com.icia.dabyinsa.user.dto.ProductListDto">
+	SELECT *
+    FROM prod_info
+    inner join prod_img
+    ON prod_info.prod_id = prod_img.pi_prod_id
+	</select>
+
+	<!-- 쿠키 -->
+	<select id="getcookie" resultType="String" parameterType="String">
+	SELECT sysname
+    FROM prod_info
+    inner join prod_img
+    ON prod_info.prod_id = prod_img.pi_prod_id
+    where prod_info.prod_id = #{prod_id}
+    
+	</select>
+
+		<!-- 상품 문의 / 후기 게시판 출력 -->
+	<select id="getreviewList" resultType="com.icia.dabyinsa.user.dto.BoardReviewDto">
+	SELECT
+    * FROM b_review
+    WHERE prod_id = #{prod_id}
+	</select>
+	
+	<select id="getqnaList" resultType="com.icia.dabyinsa.user.dto.BoardQnaDto">
+	SELECT
+    * FROM b_qna
+    WHERE prod_id = #{prod_id}
+	</select>
+
+</mapper>

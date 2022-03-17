@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.admin.dao.NewProductDao">
+
+<!-- 상품 등록 -->
+<insert id="NewProduct" parameterType="com.icia.dabyinsa.admin.dto.product.prodinfoDto" useGeneratedKeys="true" 
+	keyProperty="Prod_id_seq">
+	<selectKey keyProperty="Prod_id_seq" resultType="String" order="BEFORE">
+		select prod_id_seq.nextval from dual
+	</selectKey>
+	insert into PROD_INFO (Prod_id_seq, prod_name, retail_price, special_member_price, taxrates, 
+    admin_prod_code, prod_summary_ex, prod_briefly_ex, prod_detail_ex, sale_dp, buy_rightoff, 
+    prod_meterial, supplier, making_company, making_date, making_contry, registration_date, 
+    fix_date, shipping_fee, prod_categry, price) 
+    VALUES (#{Prod_id_seq}, #{prod_name}, #{retail_price}, #{special_member_price}, #{taxrates}, 
+    #{admin_prod_code}, #{prod_summary_ex}, #{prod_briefly_ex}, #{prod_detail_ex}, #{sale_dp}, #{buy_rightoff}, 
+    #{prod_meterial}, #{supplier}, #{making_company}, #{making_date}, #{making_contry}, sysdate, 
+    sysdate, #{shipping_fee}, #{prod_categry}, #{price})
+</insert>
+
+    <insert id="fileInsert" parameterType="HashMap">
+		INSERT INTO PROD_IMG 
+		VALUES (img_no_SEQ.NEXTVAL,#{Prod_id_seq},#{oriName},#{sysName})
+	</insert> 
+
+
+<!-- 원본 쿼리 
+insert into PROD_INFO (prod_id_seq, prod_name, retail_price, special_member_price, taxrates, 
+    admin_prod_code, prod_summary_ex, prod_briefly_ex, prod_detail_ex, sale_dp, buy_rightoff, 
+    prod_meterial, supplier, making_company, making_date, making_contry, registration_date, 
+    fix_date, shipping_fee, prod_categry, price)
+    VALUES (prod_id_seq.nextval, #{prod_name}, #{retail_price}, #{special_member_price}, #{taxrates}, 
+    #{admin_prod_code}, #{prod_summary_ex}, #{prod_briefly_ex}, #{prod_detail_ex}, #{sale_dp}, #{buy_rightoff}, 
+    #{prod_meterial}, #{supplier}, #{making_company}, #{making_date}, #{making_contry}, sysdate, 
+    sysdate, #{shipping_fee}, #{prod_categry}, #{price})
+
+-->
+ <!-- <insert id="fileInsert" parameterType="HashMap">
+		INSERT INTO PROD_INFO (prod_id_seq, oriName, sysName, prod_categry)
+		VALUES (#{Prod_id_seq}, #{oriName}, #{sysName}, #{prod_categry})
+	</insert> 
+-->
+
+
+  <select id="Check" parameterType="String"
+    	resultType="Integer">
+    	SELECT COUNT(*) FROM PROD_INFO WHERE admin_prod_code=#{admin_prod_code}
+    	
+    </select>
+    
+
+
+
+</mapper>

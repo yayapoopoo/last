@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.board.qrcode.dao.QrcodeDao">
+
+	<select id="getList" parameterType="HashMap"
+		resultType="com.icia.dabyinsa.board.qrcode.dto.QrcodeDto">
+		<![CDATA[
+		SELECT * FROM QLIST_1
+		WHERE RONUM >= (#{num} * #{lcnt}) - (#{lcnt} - 1)  
+			AND RONUM <= #{num} * #{lcnt}
+		]]>
+	</select>
+ <!-- 내것만 검색해서 가지고 오기 -->
+		<select id="getmyList" parameterType="HashMap"
+		resultType="com.icia.dabyinsa.board.qrcode.dto.QrcodeDto">
+		<![CDATA[
+		SELECT * FROM QLIST_1
+		WHERE RONUM >= (#{num} * #{lcnt}) - (#{lcnt} - 1)  
+			AND RONUM <= #{num} * #{lcnt} AND QID = #{mid}
+		]]>
+	</select> 
+
+	<select id="getQrcodeCnt" resultType="Integer">
+		SELECT COUNT(*) FROM QLIST_1
+	</select>
+
+	<insert id="qrcodeInsert"
+		parameterType="com.icia.dabyinsa.board.qrcode.dto.QrcodeDto"
+		useGeneratedKeys="true" keyProperty="qnum">
+		<selectKey keyProperty="qnum" resultType="Integer"
+			order="BEFORE">
+			SELECT QRCODE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO Q
+		VALUES (${qnum},#{qselect},#{qordername},#{qphonenumber},#{qemail},#{qeventdate},#{qprod1},#{qprod2},#{qprod3},#{qcontents},#{qid},DEFAULT,DEFAULT)
+	</insert>
+	
+	<insert id="fileInsert" parameterType="HashMap">
+		INSERT INTO QF
+		VALUES (QF_SEQ.NEXTVAL,#{qnum},#{oriName},#{sysName})
+	</insert>
+	
+	<select id="getContents" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.qrcode.dto.QrcodeDto">
+		SELECT * FROM QLIST_1 WHERE qnum=#{qnum}
+	</select>
+	
+	<select id="getQfList" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.qrcode.dto.QfileDto">
+		SELECT * FROM QF WHERE qf_qnum=#{qnum}
+	</select>
+	
+	<select id="getGuList" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.qrcode.dto.GuestDto">
+		SELECT * FROM GLIST WHERE g_qnum=#{qnum}
+	</select>
+	
+	<insert id="guestInsert" 
+		parameterType="com.icia.dabyinsa.board.qrcode.dto.GuestDto">
+		INSERT INTO G
+		VALUES (GUEST_SEQ.NEXTVAL,#{g_qnum},#{g_select},#{g_present},#{g_name},#{g_phonenumber},#{g_post},#{g_address1},#{g_address2},
+		#{g_memo},DEFAULT)
+	</insert>
+	 
+	 <update id="viewUpdate" parameterType="Integer">
+	 	UPDATE Q SET Q_VIEWS=Q_VIEWS+1
+		WHERE Q_NUM=#{qnum}
+	 </update>
+	 
+	 <update id="qrcodeUpdate" 
+	 	parameterType="com.icia.dabyinsa.board.qrcode.dto.QrcodeDto">
+	 	UPDATE Q SET Q_SELECT=#{qselect}, Q_ORDERNAME=#{qordername}, Q_PHONENUMBER=#{qphonenumber},
+	 	Q_EMAIL=#{qemail},Q_EVENTDATE=#{qeventdate},Q_PROD1=#{qprod1},Q_PROD2=#{qprod2},Q_PROD3=#{qprod3},Q_CONTENTS=#{qcontents}
+	 	WHERE Q_NUM=#{qnum}	 	
+	 </update>
+	 
+	 
+	 <delete id="fileDelete" parameterType="String">
+	 	DELETE FROM QF
+	 	WHERE QF_SYSNAME=#{sysName}
+	 </delete>
+	 
+	 <delete id="guestDelete" parameterType="Integer">
+	 	DELETE FROM G
+	 	WHERE G_QNUM=#{qnum}
+	 </delete>
+	 
+	 <delete id="filesListDelete" parameterType="Integer">
+	 	DELETE FROM QF
+	 	WHERE QF_QNUM=#{qnum}
+	 </delete>
+	 
+	 <delete id="qrcodeDelete" parameterType="Integer">
+	 	DELETE FROM Q
+	 	WHERE Q_NUM=#{qnum}
+	 </delete>
+	 
+</mapper>
+
+
+
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.admin.dao.ProductSearchDao">
+
+    <sql id="plsearch">
+		<choose>
+			<when test="plsearchOption == 'all'">
+			WHERE PRODNAME LIKE '%'||#{plkeyword}||'%' 
+			AND PRODCATEGRY LIKE '%'||#{plkeyword2}||'%'
+			</when>
+			<otherwise>
+			WHERE ${plsearchOption} LIKE '%'||#{plkeyword}||'%'
+            AND ${plsearchOption2} LIKE '%'||#{plkeyword2}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+
+<!-- 상품 목록 검색 -->
+<select id="getPLList" resultType="com.icia.dabyinsa.admin.dto.product.productlistDto">
+    SELECT * FROM PRODUCTLIST
+    <include refid="plsearch"></include>
+</select>
+
+<select id="getPLListCount" resultType="Integer">
+    SELECT COUNT(*) FROM PRODUCTLIST
+    <include refid="plsearch"></include>
+</select>
+</mapper>

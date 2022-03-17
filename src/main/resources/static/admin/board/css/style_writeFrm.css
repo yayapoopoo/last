@@ -1,0 +1,60 @@
+#quickForm .content_title .form-group label{
+	font-size: 16px;
+}
+
+#exampleSelectRounded0 {
+	font-size: 14px;	
+}
+
+.form-control {
+		font-size: 14px;	
+}
+
+#quickForm .filebox {
+	width: 100%;
+	display: flex;
+	vertical-align: middle;
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#quickForm .filebox label {
+	margin-right: 30px;
+}
+
+#quickForm .filebox p1 {
+	vertical-align: right;
+}
+
+#quickForm .filebox .upload-name {
+	width: 70%;
+}
+
+#quickForm .filebox .befor-file {
+	border: 1px soild red;
+}
+
+#quickForm .bfilebox {
+	width: 100%;
+	display: flex;
+	vertical-align: middle;
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+#quickForm .bfilebox p1 {
+	font-weight: 700;
+}
+
+#quickForm .bfilebox .befor-file {
+	width: 90%;
+}
+
+#quickForm .btn-area .btn-primary {
+	float: right;
+	margin: 5px 5px;	
+	cursor: pointer;
+}

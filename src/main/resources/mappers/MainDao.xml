@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.user.dao.MainDao">
+
+<!-- 멤버 정보 목록 -->
+	<select id="getmInfo" resultType="com.icia.dabyinsa.user.dto.MemberDto">
+    	SELECT *
+    	FROM member WHERE M_ID = #{m_id}
+    </select>
+    
+	<!-- NEW ITEMS 상품 목록 출력 (등록일자 오름차순) -->
+	<select id="getMNPList" resultType="com.icia.dabyinsa.user.dto.ProductListDto">
+		
+	SELECT *
+    FROM prod_info
+    inner join prod_img
+    ON prod_info.prod_id = prod_img.pi_prod_id
+    
+	</select>
+
+	<!-- BEST ITEMS 상품 목록 출력 (판매순 오름차순) -->
+	<select id="getMBPList" resultType="com.icia.dabyinsa.user.dto.ProductListDto">
+        SELECT *
+		FROM prod_info
+        inner join b_review
+        ON prod_info.prod_id = b_review.prod_id
+        inner join prod_img
+    	ON prod_info.prod_id = prod_img.pi_prod_id
+        ORDER BY TO_NUMBER(prod_info.prod_id)
+		<!-- ORDER BY ASC  -->		
+	</select>
+	
+	<!-- BEST ITEMS 상품별 후기 개수 출력 -->
+	<select id="getMBPcnt" resultType="Integer">
+		SELECT COUNT(*)
+		FROM prod_info, b_review
+		WHERE prod_info.prod_id = b_review.prod_id
+		AND prod_info.prod_id = 1
+	</select>	
+	
+	<!-- EVENTS 목록 출력 (등록일자 오름차순) -->
+	<select id="getMBEList" resultType="com.icia.dabyinsa.user.dto.BoardEventDto">
+		SELECT *
+		FROM b_event
+		ORDER BY b_date ASC
+	</select>
+	
+	
+	<!-- 상품 상세 페이지 이동 -->
+	<select id="getdetailList" resultType="com.icia.dabyinsa.user.dto.ProductListDto">
+		SELECT *
+		FROM prod_info
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

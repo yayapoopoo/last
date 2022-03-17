@@ -1,0 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>답인사</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+$(function(){
+	//메시지 출력 부분
+	var msg = "${msg}";
+	if(msg != ""){
+		alert(msg);
+	}
+	
+	//로그인한 회원 정보 및 로그아웃 출력
+	var lname = "${mb.m_name}";
+	$("#mname").html(lname + "님");
+	$(".suc").css("display", "block");
+	$(".bef").css("display", "none");
+});
+</script>
+
+<jsp:include page="header.jsp"></jsp:include>
+</head>
+<body>
+<div class="wrap">
+	<section>
+	<div class="content">
+		<div class="board-form">
+		
+			<h2 class="login-header">이벤트 게시판</h2>
+			<div class="data-area">
+				<div class="title-row">
+					<div class="t-no p-10">번호</div>
+					<div class="t-title p-30">제목</div>
+					<div class="t-name p-15">작성자</div>
+					<div class="t-date p-30">작성일</div>
+					<div class="t-view p-15">조회수</div>
+				</div>
+				<c:forEach var="bitem" items="${bList}">
+				<div class="data-row">
+					<div class="t-no p-10">${bitem.bnum}</div>
+					<div class="t-title p-30">
+						<!-- 상세보기 화면 이동 url + 게시글번호 -->
+						<a href="./contents?bnum=${bitem.bnum}">
+							${bitem.btitle}
+						</a>
+					</div>
+					<div class="t-name p-15">${bitem.mname}</div>
+					<div class="t-date p-30">
+						<fmt:formatDate value="${bitem.bdate}"
+							pattern="yyyy-MM-dd HH:mm:ss"/>
+					</div>
+					<div class="t-view p-15">${bitem.bviews}</div>
+				</div>
+				</c:forEach>
+			</div>
+			<div class="btn-area">
+				<div class="paging">${paging}</div>
+				<button class="wr-btn" onclick="location.href='./writeFrm'">글 작성</button>
+			</div>
+		</div>
+	</div>
+	</section>
+</div>
+<footer>
+		<jsp:include page="footer.jsp"></jsp:include>
+	</footer>
+</body>
+</html>

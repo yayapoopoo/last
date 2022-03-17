@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.profile_info {
+	text-align: center;
+}
+
+.user-delete {
+	margin-top: 100px;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.input_txt {
+	width: 250px;
+	border: 0;
+	border-bottom: 1px solid #606060;
+}
+
+#user-title {
+	padding-bottom: 30px;
+}
+
+.input_title {
+	color: gray;
+}
+
+button {
+	border: 0px;
+	background-color: #D5D5D5;
+	
+	
+}
+
+.back-button {
+	float: feft;
+	padding-left: 120px;
+}

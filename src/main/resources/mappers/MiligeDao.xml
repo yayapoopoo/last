@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.icia.dabyinsa.user.dao.MiligeDao">
+    
+    	<select id="miList" resultType="com.icia.dabyinsa.user.dto.MiligeDto">
+    		select mi.mi_num,mi.mi_acc,m.m_name
+    		from member m, milige mi
+    		where m.m_id=mi.m_id
+    		order by mi.mi_num
+    	</select>
+    
+    </mapper>

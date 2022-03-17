@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.admin.dao.ButtonDao">
+
+	<!-- 반품 버튼 -->
+	<update id="setReturns" parameterType="String">
+	UPDATE O SET PROC_STATUS = 6 WHERE O_CODE = #{ocode}
+	</update>
+	
+	<!-- 환불 버튼 -->
+	<update id="setRefund" parameterType="String">
+	UPDATE O SET PROC_STATUS = 7 WHERE O_CODE = #{ocode}
+	</update>
+	
+	<!-- 입금확인 버튼 -->
+	<update id="setPOk" parameterType="String">
+	UPDATE O SET P_STATUS = 1 WHERE O_CODE = #{ocode}
+	</update>
+	
+	<!-- 주문취소 버튼 -->
+	<delete id="setPCancle" parameterType="String">
+	DELETE FROM O WHERE O_CODE = #{ocode}
+	</delete>
+	
+	<!-- 배송중처리 버튼 -->
+	<update id="setSStart" parameterType="String">
+	UPDATE O SET D_STATUS = 3 WHERE O_CODE = #{ocode}
+	</update>
+	
+	<!-- 배송준비중처리 버튼 -->
+	<update id="setSBegin" parameterType="String">
+	UPDATE O SET D_STATUS = 1 WHERE O_CODE = #{ocode}
+	</update>
+	
+	<!-- 배송대기중처리 버튼 -->
+	<update id="setSStandBy" parameterType="String">
+	UPDATE O SET D_STATUS = 2 WHERE O_CODE = #{ocode}
+	</update>
+	
+	<!-- 배송완료처리 버튼 -->
+	<update id="setSEnd" parameterType="String">
+	UPDATE O SET D_STATUS = 4 WHERE O_CODE = #{ocode}
+	</update>
+	
+	<!-- 상품리스트 파일 삭제 버튼(삭제 쿼리 진행되기전에 선행되어야 함) -->
+	 <delete id="filedelete" parameterType="String">
+	DELETE FROM PROD_IMG WHERE pi_prod_id = #{pid}
+	 
+	
+	 </delete>
+		
+	<!-- 상품리스트 삭제 버튼 -->
+	<delete id="pdelete" parameterType="String">
+	 DELETE FROM PRODUCTLIST WHERE PID = #{pid}
+	</delete>
+</mapper>

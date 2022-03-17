@@ -1,0 +1,522 @@
+/* COMMON */
+body {
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	background: transparent;
+	font-size: 13px;
+	font-style: normal;
+	/*width: 1000px;
+	min-width: 1000px; */
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:focus {
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: none;
+}
+
+.bottom_btnbox {
+	/* border: 1px solid red; */
+	height: 30px;
+}
+
+.middle {
+	border: 1px solid red;
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.bottom_btnbox .material-icons {
+	float: right;
+	margin: 10px 5px;
+	background: #3b4890;
+	border-color: #29367c;
+	color: #fff;
+	border-width: 1px 1px 3px 1px;
+	border-style: solid;
+	font-size: 14px;
+	width: 70px;
+	height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.btn-area .material-icons {
+	float: right;
+	margin: 10px 5px;
+	background: #3b4890;
+	border-color: #29367c;
+	color: #fff;
+	border-width: 3px 1px 1px 1px;
+	border-style: solid;
+	font-size: 14px;
+	width: 70px;
+	height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* qrcode LIST */
+.inf .page_head {
+	margin: 10px 10px;
+}
+
+.inf .page_head a {
+	font-size: 24px;
+	font-family: 'Nanum Gothic', sans-serif;
+	letter-spacing: -1px;
+	white-space: nowrap;
+	color: #29367c;
+}
+
+.qrcode_list_wrap .qrcode_list {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.qrcode_list_wrap .qrcode_list thead .line1 th {
+	height: 30px;
+	border-width: 2px 0 0;
+	border-style: solid;
+	border-color: #29367c;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 700;
+}
+
+.qrcode_list_wrap .qrcode_list tbody .content th {
+	height: 30px;
+	border-width: 1px 0 1px;
+	border-style: solid;
+	border-color: #eee;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 500;
+}
+
+.qrcode_list_wrap .qrcode_list tbody th:nth-child(2) {
+	cursor: pointer;
+}
+
+.qrcode_list_wrap .qrcode_list tbody tr:hover {
+	background-color: #eee;
+}
+
+.qrcode_list_wrap .qrcode_list td {
+	padding: 5px 4px;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+}
+
+/* POST */
+.post_wrap .post {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.post_wrap .post thead .line1 th {
+	height: 30px;
+	border-width: 2px 0 0;
+	border-style: solid;
+	border-color: #29367c;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 500;
+}
+
+.post_wrap .post thead .line2 th {
+	height: 37px;
+	border-width: 1px 0 1px;
+	border-style: solid;
+	border-color: #eee;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 500;
+}
+
+.post_wrap .post thead .line3 th {
+	height: 500px;
+	border-width: 1px 0 1px;
+	border-style: solid;
+	border-color: #eee;
+	vertical-align: middle;
+	text-align: left;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 500;
+}
+
+.post_wrap .post thead .line4 th {
+	height: 37px;
+	border-width: 2px 0;
+	border-style: solid;
+	border-color: #eee;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 500;
+}
+
+.post_wrap .post thead .line5 th {
+	height: 100px;
+	border-width: 0 0 2px;
+	border-style: solid;
+	border-color: #eee;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 500;
+}
+
+/* REPLY LIST */
+.guest_list_wrap table {
+	border-collapse: collapse;
+}
+
+.guest_list_wrap .guest_list {
+	width: 100%;
+}
+
+.guest_list_wrap .guest_list thead .line1 th {
+	height: 40px;
+	vertical-align: middle;
+	text-align: left;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 700;
+}
+
+.guest_list_wrap .guest_list thead .line2 th {
+	height: 30px;
+	border-width: 2px 0 0;
+	border-style: solid;
+	border-color: #29367c;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 700;
+}
+
+.guest_list_wrap .guest_list thead .line3 th {
+	height: 30px;
+	border-width: 1px 0 0;
+	border-style: solid;
+	border-color: #eee;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+	font-weight: 500;
+}
+
+.guest_wrap table {
+	border-collapse: collapse;
+}
+
+.guest_wrap .guest {
+	width: 100%;
+}
+
+#gFrm {
+	margin-top: 20px;
+	border-width: 2px 0 2px;
+	border-style: solid;
+	border-color: #29367c;
+	background-color: #fafafa;
+}
+
+#gFrm .write-input {
+	min-width: 100%;
+	min-height: 100px;
+	margin: 5px 0 10px;
+	vertical-align: middle;
+}
+
+#gFrm .material-icons {
+	float: right;
+	margin: 5px 0;
+	background: #3b4890;
+	border-color: #29367c;
+	color: #fff;
+	border-width: 1px 1px 3px 1px;
+	border-style: solid;
+	font-size: 14px;
+	width: 70px;
+	height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.paging {
+	text-align: center;
+}
+
+/* 글쓰기 / 글수정 */
+.content {
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #eee;
+}
+
+.content .write-form .content_title {
+	width: 100%;
+	display: inline-block;
+}
+
+.content .write-form .content_title p1 {
+	font-weight: 700;
+	height: 30px;
+	vertical-align: middle;
+	text-align: left;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+}
+
+.content .write-form .content_title .write-input {
+	border-width: 0 0 1px;
+	border-style: solid;
+	border-color: #eee;
+	height: 30px;
+	vertical-align: middle;
+	text-align: center;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	display: table-cell;
+}
+
+.content .write-form .content_title .qprodBox {
+	display:
+}
+
+.content .write-form .content_title .form-select {
+	display: block;
+	width: 100%;
+	padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+	-moz-padding-start: calc(0.75rem - 3px);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	background-color: #fff;
+	background-image: url(data : image/ svg + xml, % 3csvg xmlns = 
+		 'http://www.w3.org/2000/svg' viewBox = '0 0 16 16' % 3e % 3cpath fill
+		= 'none' stroke = '%23343a40' stroke-linecap = 'round' stroke-linejoin
+		= 'round' stroke-width = '2' d = 'M2 5l6 6 6-6'/ % 3e % 3c/ svg % 3e);
+	background-repeat: no-repeat;
+	background-position: right 0.75rem center;
+	background-size: 16px 12px;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	text-align: center;
+	margin: 5px 0;
+	color: #333;
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	font-size: 14px;
+}
+
+.content .write-form textarea {
+	width: 100%;
+	margin: 15px 0;
+}
+
+.content .write-form .filebox {
+	width: 100%;
+	display: flex;
+	vertical-align: middle;
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.content .write-form .filebox label {
+	margin-right: 30px;
+}
+
+.content .write-form .filebox p1 {
+	vertical-align: right;
+}
+
+.content .write-form .filebox .upload-name {
+	width: 70%;
+}
+
+.content .write-form .filebox .befor-file {
+	border: 1px soild red;
+}
+
+.content .write-form .bfilebox {
+	width: 100%;
+	display: flex;
+	vertical-align: middle;
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.content .write-form .bfilebox p1 {
+	font-weight: 700;
+}
+
+.content .write-form .bfilebox .befor-file {
+	width: 90%;
+}
+
+/* QR Code */
+.qrcode .page_head {
+	margin: 10px 10px;
+}
+
+.qrcode .page_head a {
+	font-size: 24px;
+	font-family: 'Nanum Gothic', sans-serif;
+	letter-spacing: -1px;
+	white-space: nowrap;
+	color: #29367c;
+}
+
+/* 로그인 */
+.login {
+	text-align: center;
+	vertical-align: middle;
+	margin: auto 0px;
+	height: 100%;
+	
+}
+
+.top_login {
+	display: flex;
+	justify-content: center;
+	margin-top: 200px;
+}
+
+.top_login .toplogo {
+	width: 15%;
+	cursor: pointer;
+}
+
+.content_login {
+	/* border: 1px solid red; */
+	width: 300px;
+	
+	display: flex;
+	justify-content: center;	
+	margin: 40px auto;
+}
+
+.content_login .login-form .form-control {
+	text-align: center;
+	height: 30px;
+}
+
+.login .login_bottom{
+	text-align: center;
+	justify-content: center;	
+	display: flex;
+}
+
+.login .login_bottom a{
+margin: auto 5px;
+	text-decoration: none;
+	cursor: pointer;
+	color: gray;
+}
+
+/* 회원가입 */
+.join {
+	text-align: center;
+	vertical-align: middle;
+	margin: auto 0px;
+	height: 100%;
+	
+}
+
+.top_join {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+.top_join .toplogo {
+	width: 15%;
+	cursor: pointer;
+}
+
+.content_join {
+	/* border: 1px solid red; */
+	width: 300px;
+	
+	display: flex;
+	justify-content: center;	
+	margin: 40px auto;
+}
+
+.content_join .input-group input-group-sm mb-3 {
+	text-align: center;
+	height: 30px;
+}
+
+.join .join_bottom{
+	text-align: center;
+	justify-content: center;	
+	display: flex;
+}
+

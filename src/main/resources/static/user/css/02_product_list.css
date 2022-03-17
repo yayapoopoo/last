@@ -1,0 +1,158 @@
+@import '00.var.css';
+
+/* 이벤트배너 */
+#product {
+	padding: 2% 20%;
+	
+}
+
+
+#product img {
+	width: 100%;
+}
+
+#product a, #product h4, #product p {
+	color: black;
+}
+
+#product .product-title {
+	height: 30px;
+	margin-top: 20px;
+}
+
+#product .title-left, #product .title-left p {
+	float: left;
+	margin: 3px 0 0 0;
+	padding: 0 10px;
+}
+
+
+#product .product-num {
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+	background-color: var(--main-font-color);
+}
+
+
+#product .title-right {
+	float: right;
+}
+
+#product .title-right button {
+	padding: 5px;
+	border: none;
+	background-color: rgb(246, 246, 246);
+}
+
+#product .title-right button a {
+	color: var(--main-font-color);
+}
+
+.underline {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	border: 1px solid rgb(246, 246, 246);
+}
+
+
+#product .eventcontent {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+
+#product .eventcontent li{
+
+	background: rgb(255, 255, 255);
+	position: relative;
+}
+
+
+.product-card {
+	padding: 20px;
+	width: 100%
+}
+
+
+.product-card-body {
+	padding: 10px;
+}
+
+.title-btn {
+	border: none;
+	padding: 0;
+	background-color: rgba(0, 255, 255, 0);
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.product-card-body .price {
+	float: right;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.card-text {
+	margin-top: 1px;
+	display: -webkit-box;
+	white-space: normal;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+.product-btn {
+ 	text-align: center;		
+}
+
+.product-btn button {
+ 	text-align: center;
+ 	float: left;
+ 	padding: 0 13%;
+ 	border: none;
+ 	background: none;		
+}
+
+.product-btn2 {
+	width: 30%;
+ 
+}
+
+
+
+.product-btn svg {
+	color: black;
+
+}
+
+
+.product-btn button :hover {
+	color: rgba(180, 180, 180, 0.95);
+	transition-duration: 0.3s;
+}
+
+
+
+
+@media ( max-width : 10000px) {
+	#product .eventcontent li {
+		width: 25%;
+	}
+}
+@media ( max-width : 1500px) {
+	#product .eventcontent li {
+		width: 50%;
+	}
+}
+
+@media ( max-width : 800px) {
+	#product .eventcontent li {
+		width: 100%;
+	}
+}
+

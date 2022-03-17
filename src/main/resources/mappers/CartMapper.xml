@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.icia.dabyinsa.user.dao.CartDao">
+    	<insert id="cinsert">
+    		insert into cart (cart_id,m_id,prod_id,amount)
+    		values (cart_seq.nextval, #{m_id}, #{prod_id}, 1)
+    	</insert>
+    	<update id="update">
+    		update cart set amount=#{amount} where cart_id=#{cart_id}
+    	</update>
+    	
+    	<delete id="delete">
+    		delete from cart where cart_id=#{cart_id}
+    	</delete>
+    	
+    	<delete id="delete_all">
+    		delete from cart where m_id=#{m_id}
+    	</delete>
+    	
+    	<select id="list" resultType="com.icia.dabyinsa.user.dto.CartDto">
+    		select c.cart_id,c.prod_id,c.m_id,m.m_name,p.prod_name,c.amount,p.price,pi.img_no_seq,pi.oriname,(price*c.amount) as money
+    		from member m, cart c, prod_info p, prod_img pi
+    		where m.m_id=c.m_id and c.prod_id=p.prod_id and c.img_no_seq=pi.img_no_seq
+    		order by c.cart_id
+    	</select>
+    	
+    	<select id="sum_money" parameterType="String" resultType="Integer">
+    		select nvl(sum(price*amount),0)
+    		from cart c, prod_info p
+    		where c.prod_id=p.prod_id and c.m_id=#{m_id}
+    	</select>
+    	
+    	<select id="cart_money" resultType="com.icia.dabyinsa.user.dto.CartDto">
+    		select prod_name, sum(price*amount) money
+    		from cart c, prod_info p
+    		where c.prod_id=p.prod_id
+    		group by prod_name
+    		order by prod_name
+    	</select>
+    	
+    	<insert id="cainsert">
+    		insert into cart (cart_id,m_id,prod_id,amount,img_no_seq)
+    		values (cart_seq.nextval, #{m_id}, #{prod_id}, 1, #{img_no_seq))
+    	</insert>
+    	
+    	<select id="getItem" resultType="com.icia.dabyinsa.user.dto.CartDto">
+    		select prod_id,prod_name,price
+    		from prod_info
+    		where prod_id = #{prod_id}
+    	</select>
+    	
+    
+    </mapper>

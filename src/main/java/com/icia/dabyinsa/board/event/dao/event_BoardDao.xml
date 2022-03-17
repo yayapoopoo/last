@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.icia.dabyinsa.board.event.dao.event_BoardDao">
+
+	<select id="getList" parameterType="HashMap"
+		resultType="com.icia.dabyinsa.board.event.dto.event_BoardDto">
+		<![CDATA[
+		SELECT * FROM BLIST_1
+		WHERE RONUM >= (#{num} * #{lcnt}) - (#{lcnt} - 1)  
+			AND RONUM <= #{num} * #{lcnt}
+		]]>
+	</select>
+
+	<select id="getBoardCnt" resultType="Integer">
+		SELECT COUNT(*) FROM BLIST_1
+	</select>
+
+	<insert id="boardInsert"
+		parameterType="com.icia.dabyinsa.board.event.dto.event_BoardDto"
+		useGeneratedKeys="true" keyProperty="bnum">
+		<selectKey keyProperty="bnum" resultType="Integer"
+			order="BEFORE">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO B
+		VALUES (${bnum},#{btitle},#{bcontents},#{bid},
+			DEFAULT,DEFAULT)
+	</insert>
+	
+	<insert id="fileInsert" parameterType="HashMap">
+		INSERT INTO BF
+		VALUES (BF_SEQ.NEXTVAL,#{bnum},#{oriName},#{sysName})
+	</insert>
+	
+	<select id="getContents" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.event.dto.event_BoardDto">
+		SELECT * FROM BLIST_1 WHERE bnum=#{bnum}
+	</select>
+	
+	<select id="getBfList" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.event.dto.event_BfileDto">
+		SELECT * FROM BF WHERE bf_bnum=#{bnum}
+	</select>
+	
+	<select id="getReList" parameterType="Integer"
+		resultType="com.icia.dabyinsa.board.event.dto.event_ReplyDto">
+		SELECT * FROM RLIST WHERE r_bnum=#{bnum}
+	</select>
+	
+	<insert id="replyInsert" 
+		parameterType="com.icia.dabyinsa.board.event.dto.event_ReplyDto">
+		INSERT INTO R
+		VALUES (REPLY_SEQ.NEXTVAL,#{r_bnum},#{r_contents},
+			#{r_id},DEFAULT)
+	</insert>
+	 
+	 <update id="viewUpdate" parameterType="Integer">
+	 	UPDATE B SET B_VIEWS=B_VIEWS+1
+		WHERE B_NUM=#{bnum}
+	 </update>
+	 
+	 <update id="boardUpdate" 
+	 	parameterType="com.icia.dabyinsa.board.event.dto.event_BoardDto">
+	 	UPDATE B SET B_TITLE=#{btitle}, BCONTENTS=#{bcontents}
+	 	WHERE B_NUM=#{bnum}
+	 </update>
+	 
+	 <delete id="fileDelete" parameterType="String">
+	 	DELETE FROM BF
+	 	WHERE BF_SYSNAME=#{sysName}
+	 </delete>
+	 
+	 <delete id="replyDelete" parameterType="Integer">
+	 	DELETE FROM R
+	 	WHERE R_BNUM=#{bnum}
+	 </delete>
+	 
+	 <delete id="filesListDelete" parameterType="Integer">
+	 	DELETE FROM BF
+	 	WHERE BF_BNUM=#{bnum}
+	 </delete>
+	 
+	 <delete id="boardDelete" parameterType="Integer">
+	 	DELETE FROM B
+	 	WHERE B_NUM=#{bnum}
+	 </delete>
+</mapper>
+
+
+
+
+
